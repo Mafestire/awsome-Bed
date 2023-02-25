@@ -11,7 +11,7 @@ class User {
   login(req, res) {
     const { emailAdd, userPass } = req.body;
     const strQry = `
-        SELECT userID, firstName, lastName, gender, emailAdd, userPass, userRole, userProfile FROM Users WHERE emailAdd = ${emailAdd};
+        SELECT userID, firstName, lastName, gender, emaildAdd, userPass, userRole, userProfile FROM Users WHERE emailAdd = ${emailAdd};
         `; //verify email
 
     db.query(strQry, async (err, data) => {
@@ -49,7 +49,7 @@ class User {
 
   fetchUsers(req, res) {
     const strQry = `
-        SELECT userID, firstName, lastName, gender, emailAdd, userRole, userProfile FROM Users;
+        SELECT userID, firstName, lastName, gender, emaildAdd, userRole, userProfile FROM Users;
         `;
 
     db.query(strQry, (err, data) => {
@@ -59,7 +59,7 @@ class User {
   }
   fetchUser(req, res) {
     const strQry = `
-        SELECT userID, firstName, lastName, gender, emailAdd, userRole, userProfile FROM Users
+        SELECT userID, firstName, lastName, gender, emaildAdd, userRole, userProfile FROM Users
         WHERE userID = ?;
         `;
 
